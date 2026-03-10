@@ -1,0 +1,313 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.7/schema.json
+cv:
+  name: 孙绍齐
+  headline: AI Agent工程师 | 软件工程硕士
+  email: shaoqisun@qq.com
+  phone: "+86 17724838277"
+  website: https://shao12138.blog.csdn.net/
+  custom_connections:
+  sections:
+    教育背景:
+      - institution: 国防科技大学（985，保送）
+        area: 软件工程
+        degree: 硕士
+        start_date: 2021-09
+        end_date: 2024-06
+        location: 湖南-长沙
+        summary:
+        highlights:
+          - 方向：分布式计算、多智能体强化学习
+          - 论文：基于策略差异化的多智能体内在奖励研究（IEEE Trans*2、CCF-B、CCF-C）
+          - 科室：并行与分布处理国家重点实验室；导师：丁博
+      - institution: 郑州大学（211）
+        area: 软件工程
+        degree: 学士
+        start_date: 2017-09
+        end_date: 2021-06
+        location: 河南-郑州
+        summary:
+        highlights:
+          - 方向：Java后端开发、自然语言处理
+          - 论文：基于交互式多任务学习的中文文本情感分类（SCI）
+          - 绩点：3.63/4.00；排名：12/712；英语：CET-6
+    工作经验:
+      - company: 微众银行（武汉研发中心）
+        position: 后端开发工程师
+        date:
+        start_date: 2024-09
+        end_date: present
+        location: 湖北-武汉
+        summary:
+        highlights:
+          - CSDN 博客访问量：210w；LeetCode 刷题量：710+
+          - 获得由红杉资本领投的 1800 万美元 A 轮融资，a16z 和 Founders Fund 参投
+          - 将工程团队从 3 人扩展到 28 人，涵盖机器学习研究、平台和应用 AI 部门
+    项目经历:
+      - name: '[FlashInfer](https://github.com/)'
+        date:
+        start_date: 2023-01
+        end_date: present
+        location:
+        summary: 高性能大语言模型推理内核的开源库
+        highlights:
+          - 在 A100 GPU 上实现比基线注意力实现快 2.8 倍的速度提升
+          - 被 3 个主要 AI 实验室采用，8500+ GitHub 星标，200+ 贡献者
+      - name: '[NeuralPrune](https://github.com/)'
+        date: '2021'
+        start_date:
+        end_date:
+        location:
+        summary: 具有可微分掩码的自动化神经网络剪枝工具包
+        highlights:
+          - 将模型大小减少 90%，在 ImageNet 上准确率下降不到 1%
+          - 被 PyTorch 生态系统工具收录，4200+ GitHub 星标
+    论文发表:
+      - title: 领导者与协作性：应对多智能体强化学习中的稀疏奖励挑战
+        authors:
+          - '*Shaoqi Sun*'
+          - Hui Liu
+          - Kele Xu
+        summary:
+        doi: 10.1109/TETCI.2024.3488772
+        url: https://ieeexplore.ieee.org/abstract/document/10750496
+        journal: IEEE Transactions on Artificial Intelligence
+        date: 2024-11
+      - title: 面向多智能体强化学习的双向影响与交互
+        authors:
+          - '*Shaoqi Sun*'
+          - Kele Xu
+          - Dawei Feng
+        summary:
+        doi: 10.1109/TAI.2024.3401649
+        url: https://ieeexplore.ieee.org/document/10531155#citations
+        journal: IEEE Transactions on Artificial Intelligence
+        date: 2024-05
+      - title: 基于时间不一致性的内在奖励在多智能体强化学习中的应用
+        authors:
+          - '*Shaoqi Sun*'
+          - Kele Xu
+        summary:
+        doi: 10.1109/IJCNN54540.2023.10191420
+        url: https://ieeexplore.ieee.org/document/10191420
+        journal: IJCNN CCF-C
+        date: 2023-08
+      - title: 渐进式多样化策略在多智能体强化学习中的应用
+        authors:
+          - '*Shaoqi Sun*'
+          - Yuanzhao Zhai
+          - Kele Xu
+        summary:
+        doi: 10.1109/ICASSP49357.2023.10096125
+        url: https://ieeexplore.ieee.org/document/10096125/
+        journal: ICASSP CCF-B
+        date: 2023-05
+      - title: 基于交互式多任务学习的中文文本情感分类
+        authors:
+          - Han Zhang
+          - '*Shaoqi Sun*'
+          - Yongjin Hu
+        summary:
+        doi: 10.1109/ACCESS.2020.3007889
+        url: https://ieeexplore.ieee.org/document/9136689
+        journal: IEEE Access SCI
+        date: 2020-07
+    荣誉奖项:
+      - bullet: 省、校、院优秀毕业生、郑州大学一等奖学金 & 三好学生（连续四届）
+      - bullet: 国防科技大学全额学业奖学金（连续三届）、2023 优秀一等奖学金 & 优秀学员、2021 新生奖学金
+      - bullet: 2023 挑战杯学术科技作品竞赛（国二）、2020 全国大学生信息安全竞赛（国三）
+      - bullet: 2022 大疆创新机甲大师高校 Sim2Real 挑战赛（国三）
+    技能:
+      - label: 编程语言
+        details: Python, C++, CUDA, Rust, Julia
+      - label: 机器学习框架
+        details: PyTorch, JAX, TensorFlow, Triton, ONNX
+      - label: 基础设施
+        details: Kubernetes, Ray, 分布式训练, AWS, GCP
+      - label: 研究领域
+        details: 神经架构搜索, 模型压缩, 高效推理, 多智能体强化学习
+design:
+  theme: classic
+  # page:
+  #   size: us-letter
+  #   top_margin: 0.7in
+  #   bottom_margin: 0.7in
+  #   left_margin: 0.7in
+  #   right_margin: 0.7in
+  #   show_footer: true
+  #   show_top_note: true
+  # colors:
+  #   body: rgb(0, 0, 0)
+  #   name: rgb(0, 79, 144)
+  #   headline: rgb(0, 79, 144)
+  #   connections: rgb(0, 79, 144)
+  #   section_titles: rgb(0, 79, 144)
+  #   links: rgb(0, 79, 144)
+  #   footer: rgb(128, 128, 128)
+  #   top_note: rgb(128, 128, 128)
+  # typography:
+  #   line_spacing: 0.6em
+  #   alignment: justified
+  #   date_and_location_column_alignment: right
+  #   font_family:
+  #     body: Source Sans 3
+  #     name: Source Sans 3
+  #     headline: Source Sans 3
+  #     connections: Source Sans 3
+  #     section_titles: Source Sans 3
+  #   font_size:
+  #     body: 10pt
+  #     name: 30pt
+  #     headline: 10pt
+  #     connections: 10pt
+  #     section_titles: 1.4em
+  #   small_caps:
+  #     name: false
+  #     headline: false
+  #     connections: false
+  #     section_titles: false
+  #   bold:
+  #     name: true
+  #     headline: false
+  #     connections: false
+  #     section_titles: true
+  # links:
+  #   underline: false
+  #   show_external_link_icon: false
+  # header:
+  #   alignment: center
+  #   photo_width: 3.5cm
+  #   photo_position: left
+  #   photo_space_left: 0.4cm
+  #   photo_space_right: 0.4cm
+  #   space_below_name: 0.7cm
+  #   space_below_headline: 0.7cm
+  #   space_below_connections: 0.7cm
+  #   connections:
+  #     phone_number_format: national
+  #     hyperlink: true
+  #     show_icons: true
+  #     display_urls_instead_of_usernames: false
+  #     separator: ''
+  #     space_between_connections: 0.5cm
+  # section_titles:
+  #   type: with_partial_line
+  #   line_thickness: 0.5pt
+  #   space_above: 0.5cm
+  #   space_below: 0.3cm
+  # sections:
+  #   allow_page_break: true
+  #   space_between_regular_entries: 1.2em
+  #   space_between_text_based_entries: 0.3em
+  #   show_time_spans_in:
+  #     - experience
+  # entries:
+  #   date_and_location_width: 4.15cm
+  #   side_space: 0.2cm
+  #   space_between_columns: 0.1cm
+  #   allow_page_break: false
+  #   short_second_row: true
+  #   degree_width: 1cm
+  #   summary:
+  #     space_above: 0cm
+  #     space_left: 0cm
+  #   highlights:
+  #     bullet: •
+  #     nested_bullet: •
+  #     space_left: 0.15cm
+  #     space_above: 0cm
+  #     space_between_items: 0cm
+  #     space_between_bullet_and_text: 0.5em
+  # templates:
+  #   footer: '*NAME -- PAGE_NUMBER/TOTAL_PAGES*'
+  #   top_note: '*LAST_UPDATED CURRENT_DATE*'
+  #   single_date: MONTH_ABBREVIATION YEAR
+  #   date_range: START_DATE – END_DATE
+  #   time_span: HOW_MANY_YEARS YEARS HOW_MANY_MONTHS MONTHS
+  #   one_line_entry:
+  #     main_column: '**LABEL:** DETAILS'
+  #   education_entry:
+  #     main_column: |-
+  #       **INSTITUTION**, AREA
+  #       SUMMARY
+  #       HIGHLIGHTS
+  #     degree_column: '**DEGREE**'
+  #     date_and_location_column: |-
+  #       LOCATION
+  #       DATE
+  #   normal_entry:
+  #     main_column: |-
+  #       **NAME**
+  #       SUMMARY
+  #       HIGHLIGHTS
+  #     date_and_location_column: |-
+  #       LOCATION
+  #       DATE
+  #   experience_entry:
+  #     main_column: |-
+  #       **COMPANY**, POSITION
+  #       SUMMARY
+  #       HIGHLIGHTS
+  #     date_and_location_column: |-
+  #       LOCATION
+  #       DATE
+  #   publication_entry:
+  #     main_column: |-
+  #       **TITLE**
+  #       SUMMARY
+  #       AUTHORS
+  #       URL (JOURNAL)
+  #     date_and_location_column: DATE
+locale:
+  language: mandarin_chinese
+  # last_updated: Last updated in
+  # month: month
+  # months: months
+  # year: year
+  # years: years
+  # present: present
+  # phrases:
+  #   degree_with_area: DEGREE in AREA
+  # month_abbreviations:
+  #   - Jan
+  #   - Feb
+  #   - Mar
+  #   - Apr
+  #   - May
+  #   - June
+  #   - July
+  #   - Aug
+  #   - Sept
+  #   - Oct
+  #   - Nov
+  #   - Dec
+  # month_names:
+  #   - January
+  #   - February
+  #   - March
+  #   - April
+  #   - May
+  #   - June
+  #   - July
+  #   - August
+  #   - September
+  #   - October
+  #   - November
+  #   - December
+settings:
+  current_date: today
+  render_command:
+    output_folder: rendercv_output
+    design:
+    locale:
+    typst_path: OUTPUT_FOLDER/NAME_IN_SNAKE_CASE_CV.typ
+    pdf_path: OUTPUT_FOLDER/NAME_IN_SNAKE_CASE_CV.pdf
+    markdown_path: OUTPUT_FOLDER/NAME_IN_SNAKE_CASE_CV.md
+    html_path: OUTPUT_FOLDER/NAME_IN_SNAKE_CASE_CV.html
+    png_path: OUTPUT_FOLDER/NAME_IN_SNAKE_CASE_CV.png
+    dont_generate_markdown: false
+    dont_generate_html: false
+    dont_generate_typst: false
+    dont_generate_pdf: false
+    dont_generate_png: false
+  bold_keywords: []
+  pdf_title: NAME - CV
