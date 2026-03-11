@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.7/schema.json
 cv:
   name: 孙绍齐
-  headline: AI Agent工程师 | 软件工程硕士
+  headline: AI Agent工程师 | 软件工程硕士 | 男
   email: shaoqisun@qq.com
   phone: "+86 17724838277"
   website: https://shao12138.blog.csdn.net/
@@ -39,13 +39,13 @@ cv:
         location: 湖北-武汉
         summary:
         highlights:
+          - 主导 ChatBI + Analysis Agent 本体论项目，RAG 命中率 98%，问数准确率 87%。
+          - 独立完成 CV3（TTS）推理优化，双流式 24 并发在 429ms（P99），业界领先。
           - CSDN 博客访问量：210w；LeetCode 刷题量：710+
-          - 获得由红杉资本领投的 1800 万美元 A 轮融资，a16z 和 Founders Fund 参投
-          - 将工程团队从 3 人扩展到 28 人，涵盖机器学习研究、平台和应用 AI 部门
     项目经历:
-      - name: '[FlashInfer](https://github.com/)'
+      - name: ChatBI + Analysis Agent 本体论
         date:
-        start_date: 2023-01
+        start_date: 2025-03
         end_date: present
         location:
         summary: 高性能大语言模型推理内核的开源库
@@ -66,10 +66,10 @@ cv:
           - 被 3 个主要 AI 实验室采用，8500+ GitHub 星标，200+ 贡献者
           - 在 A100 GPU 上实现比基线注意力实现快 2.8 倍的速度提升
           - 被 3 个主要 AI 实验室采用，8500+ GitHub 星标，200+ 贡献者
-      - name: '[NeuralPrune](https://github.com/)'
-        date: '2021'
-        start_date:
-        end_date:
+      - name: 'Fast CosyVoice 3'
+        date:
+        start_date: 2024-10
+        end_date: 2025-03
         location:
         summary: 具有可微分掩码的自动化神经网络剪枝工具包
         highlights:
@@ -117,7 +117,7 @@ cv:
         date: 2023-05
       - title: 基于交互式多任务学习的中文文本情感分类
         authors:
-          - Han Zhang
+          - Han Zhang（导师）
           - '*Shaoqi Sun*'
           - Yongjin Hu
         summary:
@@ -132,17 +132,17 @@ cv:
       - bullet: 2022 大疆创新机甲大师高校 Sim2Real 挑战赛（国三）
     技术栈:
       - label: 【ML & DL & RL】
-        details: 封装、继承、多态、多线程、阻塞队列、线程池、集合类、反射。
+        details: PLA、SVM、聚类、FNN、CNN、RNN、激活函数、优化器、DQN系列、AC系列、DDPG。
       - label: 【Transformer】
-        details: 封装、继承、多态、多线程、阻塞队列、线程池、集合类、反射。
+        details: 位置编码、ROPE、QKV、KV Cache、Attention、残差 & 归一化、MHA系列、Flash Attention。
       - label: 【SFT & RLHF】
-        details: 封装、继承、多态、多线程、阻塞队列、线程池、集合类、反射。
-      - label: 【vLLM】
-        details: 封装、继承、多态、多线程、阻塞队列、线程池、集合类、反射。
+        details: P-tuning、LoRA、QLoRA、蒸馏、PPO、GRPO、DRPO、GSPO、DPO、DAPO、VAPO。
+      - label: 【vLLM & DeepSpeed】
+        details: 显存估算、KV Cache、内存墙、PD分离、PagedAttention、并行策略、ZeRO(1-3)。
       - label: 【RAG】
-        details: 封装、继承、多态、多线程、阻塞队列、线程池、集合类、反射。
+        details: 混合检索、重排序、语义切分、Graph RAG、IF-IDF & BM25、IVF & HNSW、评估。
       - label: 【Agent】
-        details: 封装、继承、多态、多线程、阻塞队列、线程池、集合类、反射。
+        details: Qwen & DeepSeek、ReAct、MCP、COT、Skill、反思、多轮对话优化、长上下文处理。
       - label: 【Java】
         details: 封装、继承、多态、多线程、阻塞队列、线程池、集合类、反射。
       - label: 【JVM】
