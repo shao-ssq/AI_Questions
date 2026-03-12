@@ -43,38 +43,27 @@ cv:
           - 独立完成 CV3（TTS）推理优化，双流式 24 并发在 429ms（P99），业界领先。
           - CSDN 博客访问量：210w；LeetCode 刷题量：710+
     项目经历:
-      - name: ChatBI + Analysis Agent 本体论
+      - name: ChatBI 智能数据洞察平台
         date:
         start_date: 2025-03
         end_date: present
         location:
-        summary: 高性能大语言模型推理内核的开源库
+        summary: 基于 Multi-Agent 的自然语言数据分析平台，支持自然语言转 SQL、智能问数与数据洞察
         highlights:
-          - 在 A100 GPU 上实现比基线注意力实现快 2.8 倍的速度提升
-          - 在 A100 GPU 上实现比基线注意力实现快 2.8 倍的速度提升
-          - 被 3 个主要 AI 实验室采用，8500+ GitHub 星标，200+ 贡献者
-          - 在 A100 GPU 上实现比基线注意力实现快 2.8 倍的速度提升
-          - 被 3 个主要 AI 实验室采用，8500+ GitHub 星标，200+ 贡献者
-          - 在 A100 GPU 上实现比基线注意力实现快 2.8 倍的速度提升
-          - 在 A100 GPU 上实现比基线注意力实现快 2.8 倍的速度提升
-          - 被 3 个主要 AI 实验室采用，8500+ GitHub 星标，200+ 贡献者
-          - 在 A100 GPU 上实现比基线注意力实现快 2.8 倍的速度提升
-          - 被 3 个主要 AI 实验室采用，8500+ GitHub 星标，200+ 贡献者
-          - 在 A100 GPU 上实现比基线注意力实现快 2.8 倍的速度提升
-          - 被 3 个主要 AI 实验室采用，8500+ GitHub 星标，200+ 贡献者
-          - 在 A100 GPU 上实现比基线注意力实现快 2.8 倍的速度提升
-          - 被 3 个主要 AI 实验室采用，8500+ GitHub 星标，200+ 贡献者
-          - 在 A100 GPU 上实现比基线注意力实现快 2.8 倍的速度提升
-          - 被 3 个主要 AI 实验室采用，8500+ GitHub 星标，200+ 贡献者
-      - name: 'Fast CosyVoice 3'
+          - 架构：设计主从式 Multi-Agent 架构，主控 Agent 调度 6 个副 Agent（数据分析、可视化、代码生成、报告撰写、质量保证、假设生成）。
+          - 检索：Schema Linking + Text-to-SQL 两阶段架构，BM25 + HNSW 混合检索实现 98% 表命中率。
+          - 训练：QLoRA 微调 + GSPO 强化训练 DeepSeek 模型，提升复杂推理能力。
+          - 推理：融合 ReAct 推理框架，问数准确率达 87%。
+          - 部署：vLLM 推理加速 + KV Cache 优化，单卡 QPS 提升 3 倍，P99 延迟控制在 500ms 内。
+      - name: CV3 推理延迟优化与分布式部署
         date:
         start_date: 2024-10
         end_date: 2025-03
         location:
-        summary: 具有可微分掩码的自动化神经网络剪枝工具包
+        summary:
         highlights:
-          - 将模型大小减少 90%，在 ImageNet 上准确率下降不到 1%
-          - 被 PyTorch 生态系统工具收录，4200+ GitHub 星标
+          - 内容：分离式架构防止 LLM 和 token2wav 资源竞争；vLLM & 多 estimator 加速 LLM 推理速度；配套流式输入&输出，提升全流程速度。
+          - 成果：4 卡分布式部署下，双流式 24 并发 P99 稳定在 429ms 内；消除流式输入延迟的条件下，TTS 推理 P99 低至 264ms，业界领先。
     论文发表:
       - title: 领导者与协作性：应对多智能体强化学习中的稀疏奖励挑战
         authors:
