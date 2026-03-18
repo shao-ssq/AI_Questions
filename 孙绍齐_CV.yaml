@@ -129,7 +129,7 @@ cv:
       - label: 【vLLM & DeepSpeed】
         details: 显存估算、KV Cache、内存墙、PD分离、PagedAttention、并行策略、ZeRO(1-3)。
       - label: 【RAG】
-        details: 混合检索、重排序、语义切分、Graph RAG、IF-IDF & BM25、IVF & HNSW、评估。
+        details: 混合检索、重排序、语义切分、Graph RAG、BGE、Qwen、BM25、IVF & HNSW、评估。
       - label: 【Agent】
         details: Qwen & DeepSeek、ReAct、MCP、COT、Skill、反思、多轮对话优化、长上下文处理。
       - label: 【Java】
