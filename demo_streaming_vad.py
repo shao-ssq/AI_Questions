@@ -223,9 +223,18 @@ def api_chunk():
     # 使用 VAD 和 ASR 处理
     is_speech, finalized, is_start, is_end = _process_vad_and_asr(s, wav)
 
+    # 获取完整文本和新文本（自上次断句以来的内容）
+    full_text = getattr(s.state, "text", "") or ""
+    new_text = full_text[len(s.last_finalized_text):] if full_text else ""
+
+    # 返回的 text：如果 is_end=True（刚断句），返回新文本；否则返回累积文本
+    # 这样客户端在断句后可以只处理新内容，不需要自己计算差值
+    text_to_return = new_text if is_end else full_text
+
     response_data = {
         "language": getattr(s.state, "language", "") or "",
-        "text": getattr(s.state, "text", "") or "",
+        "text": text_to_return,
+        "full_text": full_text,  # 保留完整文本供参考（可选）
         "finalized_segments": list(s.finalized_segments),
         "vad_status": {
             "is_speech": bool(is_speech),
@@ -268,7 +277,7 @@ def parse_args():
     p = argparse.ArgumentParser(description="Qwen3-ASR 流式 Web Demo，带 RMS VAD（vLLM 后端）")
     p.add_argument("--asr-model-path", default="/root/Qwen3-ASR-1.7B", help="模型名称或本地路径")
     p.add_argument("--host", default="0.0.0.0", help="绑定主机")
-    p.add_argument("--port", type=int, default=8800, help="绑定端口")
+    p.add_argument("--port", type=int, default=8000, help="绑定端口")
     p.add_argument("--gpu-memory-utilization", type=float, default=0.25, help="vLLM GPU 显存利用率")
 
     p.add_argument("--unfixed-chunk-num", type=int, default=2, help="前缀之前的初始切片数量")
@@ -300,7 +309,6 @@ def main():
         model=args.asr_model_path,
         gpu_memory_utilization=args.gpu_memory_utilization,
         max_new_tokens=32,
-        fix_mistral_regex=True,
     )
     print(f"模型已加载：{args.asr_model_path}")
     print(f"VAD 设置：RMS 阈值={RMS_THRESHOLD:.4f}, 静音断句={SILENCE_MS_TO_FINALIZE}ms")
