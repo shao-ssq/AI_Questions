@@ -48,6 +48,7 @@ class Session:
     finalized_segments: List[str] = field(default_factory=list)
     last_finalized_text: str = ""
     last_vad_state_text: str = ""
+    segment_index: int = 0  # 断句索引计数器
 
 
 app = Flask(__name__)
@@ -126,16 +127,17 @@ def _calculate_rms(audio_chunk: np.ndarray) -> float:
 def _process_vad_and_asr(
     session: Session,
     audio_chunk: np.ndarray,
-) -> Tuple[bool, Optional[str], bool, bool]:
+) -> Tuple[bool, Optional[str], bool, bool, int]:
     """
     使用 RMS VAD 和流式 ASR 处理音频切片。
 
     返回:
-        (is_speech, finalized_sentence, is_start, is_end)
+        (is_speech, finalized_sentence, is_start, is_end, segment_index)
         - is_speech: 此切片是否包含语音
         - finalized_sentence: 如果 VAD 触发断句则返回完成的句子，否则为 None
         - is_start: 此切片是否标记语音开始
         - is_end: 此切片是否标记句子结束（断句）
+        - segment_index: 断句索引（第n个断句，从0开始）
     """
     global RMS_THRESHOLD, SILENCE_MS_TO_FINALIZE
 
@@ -165,6 +167,7 @@ def _process_vad_and_asr(
     # 检查是否应该断句（语音后的静音 + 有新文本）
     finalized_sentence = None
     is_end = False
+    current_segment_index = session.segment_index  # 记录当前索引供返回
     if session.in_speech and session.silence_ms >= SILENCE_MS_TO_FINALIZE:
         # 触发断句 - 提取自上次断句以来的新文本
         if len(current_text) > len(session.last_finalized_text):
@@ -174,6 +177,7 @@ def _process_vad_and_asr(
                 session.finalized_segments.append(finalized_sentence)
                 session.last_finalized_text = current_text
                 is_end = True  # 标记此切片为句子结束
+                session.segment_index += 1  # 断句后索引递增，供下一次使用
 
         # 重置 VAD 状态以处理下一句
         session.in_speech = False
@@ -186,7 +190,7 @@ def _process_vad_and_asr(
     # streaming_transcribe 函数维护自己的内部缓冲区
     global_asr.streaming_transcribe(audio_chunk, session.state)
 
-    return is_speech, finalized_sentence, is_start, is_end
+    return is_speech, finalized_sentence, is_start, is_end, current_segment_index
 
 
 
@@ -221,19 +225,18 @@ def api_chunk():
     wav = np.frombuffer(raw, dtype=np.float32).reshape(-1)
 
     # 使用 VAD 和 ASR 处理
-    is_speech, finalized, is_start, is_end = _process_vad_and_asr(s, wav)
+    is_speech, finalized, is_start, is_end, segment_index = _process_vad_and_asr(s, wav)
 
     # 获取完整文本和新文本（自上次断句以来的内容）
     full_text = getattr(s.state, "text", "") or ""
     new_text = full_text[len(s.last_finalized_text):] if full_text else ""
 
-    # 返回的 text：如果 is_end=True（刚断句），返回新文本；否则返回累积文本
-    # 这样客户端在断句后可以只处理新内容，不需要自己计算差值
-    text_to_return = new_text if is_end else full_text
+    # text 始终返回自上次断句以来的新内容
+    # 已断句的内容通过 finalized_segments 获取
 
     response_data = {
         "language": getattr(s.state, "language", "") or "",
-        "text": text_to_return,
+        "text": new_text,  # 自上次断句以来的新内容
         "full_text": full_text,  # 保留完整文本供参考（可选）
         "finalized_segments": list(s.finalized_segments),
         "vad_status": {
@@ -241,6 +244,7 @@ def api_chunk():
             "silence_ms": float(s.silence_ms),
             "is_start": bool(is_start),
             "is_end": bool(is_end),
+            "segment_index": segment_index,  # 当前断句索引（第n个断句，从0开始）
         }
     }
 

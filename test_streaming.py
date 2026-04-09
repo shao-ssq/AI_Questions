@@ -114,6 +114,7 @@ def run_streaming_test(audio: np.ndarray, base_url: str, chunk_ms: int, realtime
         silence_ms = vad_status.get("silence_ms", 0)
         is_start = vad_status.get("is_start", False)
         is_end = vad_status.get("is_end", False)
+        segment_index = vad_status.get("segment_index", 0)
 
         # 仅在文本变化或新句子断句时打印
         if text != last_text or finalized:
@@ -127,7 +128,7 @@ def run_streaming_test(audio: np.ndarray, base_url: str, chunk_ms: int, realtime
             if flags:
                 status_line += f"  [{' '.join(flags)}]"
             if finalized:
-                status_line += f"\n      ✂️ 断句：{finalized[-1]!r} (共{len(finalized)}句)"
+                status_line += f"\n      ✂️ 断句[{segment_index}]：{finalized[-1]!r} (共{len(finalized)}句)"
             print(status_line)
             last_text = text
         else:
@@ -152,7 +153,7 @@ def run_streaming_test(audio: np.ndarray, base_url: str, chunk_ms: int, realtime
 
 def main():
     p = argparse.ArgumentParser(description="Qwen3-ASR 流式 API 测试客户端")
-    p.add_argument("--url", default="http://172.23.32.85:8800/", help="服务器基础地址")
+    p.add_argument("--url", default="http://172.23.32.85:8000/", help="服务器基础地址")
     p.add_argument("--audio", default="yuan.WAV")
     p.add_argument("--sine", action="store_true", help="使用合成正弦波代替 WAV 文件")
     p.add_argument("--chunk-ms", type=int, default=500, help="切片时长（毫秒），默认 500")
