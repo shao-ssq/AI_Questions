@@ -217,6 +217,7 @@ def api_start():
 @app.post("/api/chunk")
 def api_chunk():
     session_id = request.args.get("session_id", "")
+    seq_type = request.args.get("seq_type", 0, type=int)
     s = _get_session(session_id)
     if not s:
         return jsonify({"error": "invalid session_id"}), 400
@@ -232,6 +233,14 @@ def api_chunk():
 
     # 使用 VAD 和 ASR 处理
     is_speech, finalized, is_start, is_end, segment_index = _process_vad_and_asr(s, wav)
+
+    # seq_type=0：首包，is_start 强制为 True
+    if seq_type == 0:
+        is_start = True
+
+    # seq_type=2：尾包，is_end 强制为 True
+    if seq_type == 2:
+        is_end = True
 
     # 获取完整文本和新文本（自上次断句以来的内容）
     full_text = getattr(s.state, "text", "") or ""

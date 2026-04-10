@@ -13,11 +13,9 @@
     python test_streaming.py --audio audio.wav --url http://localhost:8000 --chunk-ms 500
 
 注意:
-    服务器会在 3 秒未收到语音包后自动结束会话。
-    无需显式调用 /api/finish。
+    发送完所有切片后会主动调用 /api/finish 结束会话并打印最终识别结果。
 """
 import argparse
-import struct
 import time
 import wave
 
@@ -139,15 +137,20 @@ def run_streaming_test(audio: np.ndarray, base_url: str, chunk_ms: int, realtime
 
     print()
 
-    # ── 3. 等待自动结束 ───────────────────────────────────────────
-    # 服务器会在 3 秒未收到语音包后自动结束会话。
-    # 短暂等待以让服务器处理完最后的切片。
-    print("[3/3] 等待服务器自动结束（3 秒超时）...")
-    time.sleep(3.5)
-    print("      完成。会话应在服务器端自动结束。")
+    # ── 3. 主动结束会话 ───────────────────────────────────────────
+    print("[3/3] POST /api/finish")
+    r = requests.post(f"{base_url}/api/finish", params={"session_id": session_id}, timeout=30)
+    r.raise_for_status()
+    finish_result = r.json()
 
     print(f"\n{'='*60}")
     print(f"Total time     : {time.time() - t0:.2f}s")
+    print(f"Language       : {finish_result.get('language', '')!r}")
+    print(f"Full text      : {finish_result.get('text', '')!r}")
+    segments = finish_result.get("finalized_segments", [])
+    print(f"Segments ({len(segments)})   :")
+    for idx, seg in enumerate(segments):
+        print(f"  [{idx}] {seg!r}")
     print(f"{'='*60}\n")
 
 
