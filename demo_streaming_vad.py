@@ -101,11 +101,17 @@ def _gc_sessions():
         SESSIONS.pop(sid, None)
 
 
-def _get_session(session_id: str) -> Optional[Session]:
-    """获取现有会话，不存在则返回 None。"""
+def _get_session(session_id: str, update_last_seen: bool = True) -> Optional[Session]:
+    """
+    获取现有会话，不存在则返回 None。
+
+    参数:
+        session_id: 会话ID
+        update_last_seen: 是否更新 last_seen 时间戳（默认True）
+    """
     _gc_sessions()
     s = SESSIONS.get(session_id)
-    if s:
+    if s and update_last_seen:
         s.last_seen = time.time()
     return s
 
@@ -231,20 +237,17 @@ def api_chunk():
     full_text = getattr(s.state, "text", "") or ""
     new_text = full_text[len(s.last_finalized_text):] if full_text else ""
 
-    # text 始终返回自上次断句以来的新内容
-    # 已断句的内容通过 finalized_segments 获取
-
     response_data = {
         "language": getattr(s.state, "language", "") or "",
-        "text": new_text,  # 自上次断句以来的新内容
-        "full_text": full_text,  # 保留完整文本供参考（可选）
+        "text": new_text,
+        "full_text": full_text,
         "finalized_segments": list(s.finalized_segments),
         "vad_status": {
             "is_speech": bool(is_speech),
             "silence_ms": float(s.silence_ms),
             "is_start": bool(is_start),
             "is_end": bool(is_end),
-            "segment_index": segment_index,  # 当前断句索引（第n个断句，从0开始）
+            "segment_index": segment_index,
         }
     }
 
