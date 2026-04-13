@@ -1,12 +1,23 @@
 import argparse
+import logging
 import time
 import uuid
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional, Tuple
 
 import numpy as np
-from flask import Flask, Response, jsonify, request
+from flask import Flask, jsonify, request
 from qwen_asr import Qwen3ASRModel
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler("chunk.log", encoding="utf-8"),
+        logging.StreamHandler(),
+    ],
+)
+logger = logging.getLogger(__name__)
 
 
 # ============== RMS VAD 配置 ==============
@@ -257,6 +268,15 @@ def api_chunk():
         }
     }
 
+    vad = response_data["vad_status"]
+    logger.info(
+        "[vad] is_start=%s is_end=%s is_speech=%s silence_ms=%.1f seg=%s"
+        " | lang=%s text=%r full=%r | finalized=%s",
+        vad["is_start"], vad["is_end"], vad["is_speech"], vad["silence_ms"],
+        vad["segment_index"], response_data["language"],
+        response_data["text"], response_data["full_text"],
+        response_data["finalized_segments"],
+    )
     return jsonify(response_data)
 
 
