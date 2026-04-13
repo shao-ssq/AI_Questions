@@ -48,7 +48,6 @@ class Session:
     finalized_segments: List[str] = field(default_factory=list)
     last_finalized_text: str = ""
     last_vad_state_text: str = ""
-    segment_index: int = 0  # 断句索引计数器
 
 
 app = Flask(__name__)
@@ -62,7 +61,7 @@ SILENCE_MS_TO_FINALIZE: float = DEFAULT_SILENCE_MS_TO_FINALIZE
 
 SESSIONS: Dict[str, Session] = {}
 SESSION_TTL_SEC = 20 * 10 * 60  # 会话最大生命周期
-NO_AUDIO_TIMEOUT_SEC = 3.0  # 3 秒未收到语音包则自动结束
+NO_AUDIO_TIMEOUT_SEC = 10  # 10 秒未收到语音包则自动结束
 
 
 def _gc_sessions():
@@ -173,7 +172,6 @@ def _process_vad_and_asr(
     # 检查是否应该断句（语音后的静音 + 有新文本）
     finalized_sentence = None
     is_end = False
-    current_segment_index = session.segment_index  # 记录当前索引供返回
     if session.in_speech and session.silence_ms >= SILENCE_MS_TO_FINALIZE:
         # 触发断句 - 提取自上次断句以来的新文本
         if len(current_text) > len(session.last_finalized_text):
@@ -183,20 +181,19 @@ def _process_vad_and_asr(
                 session.finalized_segments.append(finalized_sentence)
                 session.last_finalized_text = current_text
                 is_end = True  # 标记此切片为句子结束
-                session.segment_index += 1  # 断句后索引递增，供下一次使用
 
         # 重置 VAD 状态以处理下一句
         session.in_speech = False
         session.silence_ms = 0
 
-    # 保存上一次状态供下一次迭代使用
-    session.was_in_speech = session.in_speech
+    # 保存上一次状态供下一次迭代使用（用原始 is_speech，而非状态机的 in_speech）
+    session.was_in_speech = is_speech
 
     # 流式 ASR: 直接传入切片
     # streaming_transcribe 函数维护自己的内部缓冲区
     global_asr.streaming_transcribe(audio_chunk, session.state)
 
-    return is_speech, finalized_sentence, is_start, is_end, current_segment_index
+    return is_speech, finalized_sentence, is_start, is_end, len(session.finalized_segments)
 
 
 
@@ -217,7 +214,7 @@ def api_start():
 @app.post("/api/chunk")
 def api_chunk():
     session_id = request.args.get("session_id", "")
-    seq_type = request.args.get("seq_type", 0, type=int)
+    seq_type = request.args.get("seq_type", 1, type=int)
     s = _get_session(session_id)
     if not s:
         return jsonify({"error": "invalid session_id"}), 400
