@@ -72,7 +72,7 @@ SILENCE_MS_TO_FINALIZE: float = DEFAULT_SILENCE_MS_TO_FINALIZE
 
 SESSIONS: Dict[str, Session] = {}
 SESSION_TTL_SEC = 20 * 10 * 60  # 会话最大生命周期
-NO_AUDIO_TIMEOUT_SEC = 10  # 10 秒未收到语音包则自动结束
+NO_AUDIO_TIMEOUT_SEC = 30  # 10 秒未收到语音包则自动结束
 
 
 def _gc_sessions():
