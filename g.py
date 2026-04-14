@@ -271,11 +271,10 @@ def api_chunk():
     vad = response_data["vad_status"]
     logger.info(
         "[vad] is_start=%s is_end=%s is_speech=%s silence_ms=%.1f seg=%s"
-        " | lang=%s text=%r full=%r | finalized=%s",
+        " | lang=%s text=%r",
         vad["is_start"], vad["is_end"], vad["is_speech"], vad["silence_ms"],
         vad["segment_index"], response_data["language"],
-        response_data["text"], response_data["full_text"],
-        response_data["finalized_segments"],
+        response_data["text"],
     )
     return jsonify(response_data)
 
