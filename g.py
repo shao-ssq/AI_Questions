@@ -219,11 +219,13 @@ def api_start():
     )
     now = time.time()
     SESSIONS[session_id] = Session(state=state, created_at=now, last_seen=now)
+    logger.info("[start] time=%s session_id=%s", time.strftime("%Y-%m-%d %H:%M:%S"), session_id)
     return jsonify({"session_id": session_id})
 
 
 @app.post("/api/chunk")
 def api_chunk():
+    t0 = time.time()
     session_id = request.args.get("session_id", "")
     seq_type = request.args.get("seq_type", 1, type=int)
     s = _get_session(session_id)
@@ -269,9 +271,11 @@ def api_chunk():
     }
 
     vad = response_data["vad_status"]
+    elapsed_ms = (time.time() - t0) * 1000
     logger.info(
-        "[vad] is_start=%s is_end=%s is_speech=%s silence_ms=%.1f seg=%s"
+        "[vad] time=%s session_id=%s cost=%.1fms | is_start=%s is_end=%s is_speech=%s silence_ms=%.1f seg=%s"
         " | lang=%s text=%r",
+        time.strftime("%Y-%m-%d %H:%M:%S"), session_id, elapsed_ms,
         vad["is_start"], vad["is_end"], vad["is_speech"], vad["silence_ms"],
         vad["segment_index"], response_data["language"],
         response_data["text"],
