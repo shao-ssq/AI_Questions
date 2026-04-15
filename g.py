@@ -204,7 +204,7 @@ def _process_vad_and_asr(
     # streaming_transcribe 函数维护自己的内部缓冲区
     global_asr.streaming_transcribe(audio_chunk, session.state)
 
-    return is_speech, finalized_sentence, is_start, is_end, len(session.finalized_segments)
+    return is_speech, finalized_sentence, is_start, is_end, len(session.finalized_segments) - 1 if is_end and finalized_sentence else len(session.finalized_segments)
 
 
 
@@ -255,6 +255,10 @@ def api_chunk():
     # 获取完整文本和新文本（自上次断句以来的内容）
     full_text = getattr(s.state, "text", "") or ""
     new_text = full_text[len(s.last_finalized_text):] if full_text else ""
+
+    # 当 is_end 时，返回刚断句的文本而非静音chunk的空文本
+    if is_end and s.finalized_segments:
+        new_text = s.finalized_segments[-1]
 
     response_data = {
         "language": getattr(s.state, "language", "") or "",
