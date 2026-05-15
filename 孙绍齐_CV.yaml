@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.7/schema.json
 cv:
   name: 孙绍齐
-  headline: AI Agent工程师 | 软件工程硕士 | 男
+  headline: 算法工程师 | 软件工程硕士 | 男
   email: shaoqisun@qq.com
   phone: "+86 17724838277"
   website: https://shao12138.blog.csdn.net/
@@ -32,7 +32,7 @@ cv:
           - 绩点：3.63/4.00；排名：12/712；英语：CET-6
     工作经验:
       - company: 微众银行（武汉研发中心）
-        position: 后端开发工程师
+        position: 数据算法岗
         date:
         start_date: 2024-09
         end_date: present
