@@ -8,17 +8,18 @@ cv:
   custom_connections:
   sections:
     教育背景:
-      - institution: 国防科技大学（985，保送）
-        area: 软件工程
+      - institution: 国防科技大学（985）
+        area: 软件工程（A+）
         degree: 硕士
         start_date: 2021-09
         end_date: 2024-06
         location: 湖南-长沙
         summary:
         highlights:
-          - 方向：分布式计算、多智能体强化学习
+          - 方向：多智能体强化学习（MARL）
           - 论文：基于策略差异化的多智能体内在奖励研究（IEEE Trans*2、CCF-B）
-          - 科室：并行与分布处理国家重点实验室；导师：丁博
+          - 科室：并行与分布处理国家重点实验室
+          - 博客：CSDN 访问量 210w；LeetCode：710+
       - institution: 郑州大学（211）
         area: 软件工程
         degree: 学士
@@ -27,11 +28,11 @@ cv:
         location: 河南-郑州
         summary:
         highlights:
-          - 方向：Java后端开发、自然语言处理
+          - 方向：自然语言处理（NLP）
           - 论文：基于交互式多任务学习的中文文本情感分类（SCI）
           - 绩点：3.63/4.00；排名：12/712；英语：CET-6
     工作经验:
-      - company: 微众银行（武汉研发中心）
+      - company: 微众银行
         position: 数据算法岗
         date:
         start_date: 2024-09
@@ -41,7 +42,6 @@ cv:
         highlights:
           - 主导 ChatBI + Analysis Agent 本体论项目，RAG 命中率 98%，问数准确率 87%。
           - 独立完成 CV3（TTS）推理优化，双流式 24 并发在 429ms（P99），业界领先。
-          - CSDN 博客访问量：210w；LeetCode 刷题量：710+
     项目经历:
       - name: ChatBI 智能数据洞察平台
         date:
