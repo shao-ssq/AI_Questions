@@ -1,15 +1,15 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.7/schema.json
 cv:
   name: 孙绍齐
-  headline: 算法工程师 | 软件工程硕士 | 男
+  headline: 算法工程师 | 软件工程硕士 | 1999.3 | 党员 | 男
   email: shaoqisun@qq.com
   phone: "+86 17724838277"
   website: https://shao12138.blog.csdn.net/
   custom_connections:
   sections:
     教育背景:
-      - institution: 国防科技大学（985）
-        area: 软件工程（A+）
+      - institution: 国防科技大学（985，双一流高校，国重）
+        area: 软件工程（A+，双一流学科）
         degree: 硕士
         start_date: 2021-09
         end_date: 2024-06
@@ -18,9 +18,8 @@ cv:
         highlights:
           - 方向：多智能体强化学习（MARL）
           - 论文：基于策略差异化的多智能体内在奖励研究（IEEE Trans*2、CCF-B）
-          - 科室：并行与分布处理国家重点实验室
-          - 博客：CSDN 访问量 210w；LeetCode：710+
-      - institution: 郑州大学（211）
+          - 博客：CSDN 访问量 217w；LeetCode：716
+      - institution: 郑州大学（211，双一流高校）
         area: 软件工程
         degree: 学士
         start_date: 2017-09
@@ -32,21 +31,22 @@ cv:
           - 论文：基于交互式多任务学习的中文文本情感分类（SCI）
           - 绩点：3.63/4.00；排名：12/712；英语：CET-6
     工作经验:
-      - company: 微众银行
-        position: 数据算法岗
+      - company: 微众银行 | 武汉研发中心 | 数据算法岗
+        position: ""
         date:
         start_date: 2024-09
         end_date: present
         location: 湖北-武汉
         summary:
         highlights:
-          - 主导 ChatBI + Analysis Agent 本体论项目，RAG 命中率 98%，问数准确率 87%。
-          - 独立完成 CV3（TTS）推理优化，双流式 24 并发在 429ms（P99），业界领先。
+          - 方向：大语言模型算法微调（Fine-tune）、文本转语音算法（TTS）推理加速
+          - 专利：一种多智能体强化学习下基于影响传播的奖励冲突解决方法、一种自适应波动流量下限流熔断策略
+          - 博客：CSDN 访问量 217w；LeetCode：716
     项目经历:
       - name: ChatBI 智能数据洞察平台
-        date:
-        start_date: 2025-03
-        end_date: present
+        date: 微众银行
+        start_date:
+        end_date:
         location:
         summary: 基于 Multi-Agent 的自然语言数据分析平台，支持自然语言转 SQL、智能问数与数据洞察
         highlights:
@@ -56,9 +56,9 @@ cv:
           - 推理：融合 ReAct 推理框架，问数准确率达 87%。
           - 部署：vLLM 推理加速 + KV Cache 优化，单卡 QPS 提升 3 倍，P99 延迟控制在 500ms 内。
       - name: CV3 推理延迟优化与分布式部署
-        date:
-        start_date: 2024-10
-        end_date: 2025-03
+        date: 微众银行
+        start_date:
+        end_date:
         location:
         summary:
         highlights:
