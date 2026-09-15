@@ -11,19 +11,19 @@ cv:
       - institution: 国防科技大学（985，双一流高校，国重）
         area: 软件工程（A+，双一流学科）
         degree: 硕士
-        start_date: 2021-09
-        end_date: 2024-06
+        start_date: 2021
+        end_date: 2024
         location: 湖南-长沙
         summary:
         highlights:
           - 方向：多智能体强化学习（MARL）
-          - 论文：基于策略差异化的多智能体内在奖励研究（IEEE Trans*2、CCF-B）
-          - 博客：CSDN 访问量 217w；LeetCode：716
+          - 论文：基于策略差异化的多智能体内在奖励研究（IEEE Trans*2、CCF-B、CCF-C）
+          - 博客：CSDN 访问量 220w；LeetCode：716
       - institution: 郑州大学（211，双一流高校）
         area: 软件工程
         degree: 学士
-        start_date: 2017-09
-        end_date: 2021-06
+        start_date: 2017
+        end_date: 2021
         location: 河南-郑州
         summary:
         highlights:
@@ -34,29 +34,38 @@ cv:
       - company: 微众银行 | 武汉研发中心 | 数据算法岗
         position: ""
         date:
-        start_date: 2024-09
+        start_date: 2024
         end_date: present
         location: 湖北-武汉
         summary:
         highlights:
-          - 方向：大语言模型算法微调（Fine-tune）、文本转语音算法（TTS）推理加速
-          - 专利：一种多智能体强化学习下基于影响传播的奖励冲突解决方法、一种自适应波动流量下限流熔断策略
-          - 博客：CSDN 访问量 217w；LeetCode：716
+          - 方向：大语言模型微调（Fine-tune）、文本转语音算法（TTS）推理加速
+          - 项目：【WeLLM 微调模型迭代平台】【AOB 智能客户外呼系统】
+          - 专利：MARL 下基于影响传播的奖励冲突解决方法、一种自适应波动流量下限流熔断策略
     项目经历:
-      - name: ChatBI 智能数据洞察平台
-        date: 微众银行
+      - name: WeLLM 多智能体模型迭代平台
+        date: 2026-09
         start_date:
         end_date:
         location:
-        summary: 基于 Multi-Agent 的自然语言数据分析平台，支持自然语言转 SQL、智能问数与数据洞察
+        summary: 由造数、对话、质检、微调与分析五大 Agent 协同构成，实现“数据构建—模型对话—质量控制-模型微调—上线迭代”的全流程智能化闭环。
         highlights:
-          - 架构：设计主从式 Multi-Agent 架构，主控 Agent 调度 6 个副 Agent（数据分析、可视化、代码生成、报告撰写、质量保证、假设生成）。
-          - 检索：Schema Linking + Text-to-SQL 两阶段架构，BM25 + HNSW 混合检索实现 98% 表命中率。
-          - 训练：QLoRA 微调 + GSPO 强化训练 DeepSeek 模型，提升复杂推理能力。
-          - 推理：融合 ReAct 推理框架，问数准确率达 87%。
-          - 部署：vLLM 推理加速 + KV Cache 优化，单卡 QPS 提升 3 倍，P99 延迟控制在 500ms 内。
-      - name: CV3 推理延迟优化与分布式部署
-        date: 微众银行
+          - 造数：DAG 拓扑 + 马尔可夫状态机驱动节点走向，LLM 生成坐席话术、概率选边生成客户回复，遍历多重分支补全长尾与边缘场景。
+          - 对话：双模型对弈（微调模型 vs 微调真实用户模型）驱动多轮动态对话，注入多维用户画像自动对练，覆盖人工难以穷举的长尾与对抗场景。
+          - 质检：专项检测器并发 + 断点续传 + 二次审查纠正误判，以人工标注为基准量化准确率/召回率/误杀率，实现“对话即出表、全量覆盖”质检。
+          - 微调：Qwen3-8B 经 LoRA 微调落地法务/催收/营销等场景 LLM，对话侧由 U1/U2/U3.json 随机抽取画像与意图拼接 Prompt 生成客户输入，质检侧按 D0-D2 分阶段检测并聚合上报。
+          - 分析：LLM 语义聚类 + 归因引擎并发处理线上真实交互，挖掘场景盲区并指令化回流造数 Agent，驱动全链路自演进。
+      - name: DeepReview
+        date: 2025-10
+        start_date:
+        end_date:
+        location:
+        summary: 基于微调大模型与本体建模的 AI 代码审查 SKILL，通过规则分类体系与 Diff/Code 双通道审查，实现 Review 真正的 0 Token 消耗。
+        highlights:
+          - 内容：基于 Qwen3.6-27B 微调模型构建代码 Diff/Code 双通道审查；采用 Tree-sitter AST 扩展至函数边界并注入状态和行号上下文；内置 215 条《CNC 开发铁律&金融严谨性》规则分类体系（A 类 123 条可通过单 Diff 判断，B 类 92 条需 SKILL 跨文件/跨表上下文）。
+          - 成果：Token 降低 90%+，每次 Review 无需大量 grep 扫描上下文；通用 LLM 精确率仅 50%、误判率 30%，DeepReview 达 95%+ 精确率；已发布 pip 包（deep-review）实现数据飞轮自演进。
+      - name: CosyVoice 推理延迟优化与分布式部署
+        date: 2025-04
         start_date:
         end_date:
         location:
@@ -65,41 +74,37 @@ cv:
           - 内容：分离式架构防止 LLM 和 token2wav 资源竞争；vLLM & 多 estimator 加速 LLM 推理速度；配套流式输入&输出，提升全流程速度。
           - 成果：4 卡分布式部署下，双流式 24 并发 P99 稳定在 429ms 内；消除流式输入延迟的条件下，TTS 推理 P99 低至 264ms，业界领先。
     论文发表:
-      - title: 领导者与协作性：应对多智能体强化学习中的稀疏奖励挑战
+      - title: 领导者与协作者：解决多智能体强化学习中的稀疏奖励问题
         authors:
-          - '*Shaoqi Sun*'
+          - '**Shaoqi Sun**'
           - Hui Liu
           - Kele Xu
-        summary:
         doi: 10.1109/TETCI.2024.3488772
         url: https://ieeexplore.ieee.org/abstract/document/10750496
         journal: IEEE Transactions on Artificial Intelligence
         date: 2024-11
       - title: 面向多智能体强化学习的双向影响与交互
         authors:
-          - '*Shaoqi Sun*'
+          - '**Shaoqi Sun**'
           - Kele Xu
           - Dawei Feng
-        summary:
         doi: 10.1109/TAI.2024.3401649
         url: https://ieeexplore.ieee.org/document/10531155#citations
         journal: IEEE Transactions on Artificial Intelligence
         date: 2024-05
       - title: 基于时间不一致性的内在奖励在多智能体强化学习中的应用
         authors:
-          - '*Shaoqi Sun*'
+          - '**Shaoqi Sun**'
           - Kele Xu
-        summary:
         doi: 10.1109/IJCNN54540.2023.10191420
         url: https://ieeexplore.ieee.org/document/10191420
         journal: IJCNN CCF-C
         date: 2023-08
       - title: 渐进式多样化策略在多智能体强化学习中的应用
         authors:
-          - '*Shaoqi Sun*'
+          - '**Shaoqi Sun**'
           - Yuanzhao Zhai
           - Kele Xu
-        summary:
         doi: 10.1109/ICASSP49357.2023.10096125
         url: https://ieeexplore.ieee.org/document/10096125/
         journal: ICASSP CCF-B
@@ -107,14 +112,14 @@ cv:
       - title: 基于交互式多任务学习的中文文本情感分类
         authors:
           - Han Zhang（导师）
-          - '*Shaoqi Sun*'
+          - '**Shaoqi Sun**'
           - Yongjin Hu
-        summary:
         doi: 10.1109/ACCESS.2020.3007889
         url: https://ieeexplore.ieee.org/document/9136689
         journal: IEEE Access SCI
         date: 2020-07
     荣誉奖项:
+      - bullet: 微众银行双月之星、最佳拍档、协助之星、AI分享之星、1024 Agent大赛二等奖（连续两届）
       - bullet: 省、校、院优秀毕业生、郑州大学一等奖学金 & 三好学生（连续四届）
       - bullet: 国防科技大学全额学业奖学金（连续三届）、2023 优秀一等奖学金 & 优秀学员、2021 新生奖学金
       - bullet: 2023 挑战杯学术科技作品竞赛（国二）、2020 全国大学生信息安全竞赛（国三）
@@ -132,10 +137,8 @@ cv:
         details: 混合检索、重排序、语义切分、Graph RAG、BGE、Qwen、BM25、IVF & HNSW、评估。
       - label: 【Agent】
         details: Qwen & DeepSeek、ReAct、MCP、COT、Skill、反思、多轮对话优化、长上下文处理。
-      - label: 【Java】
-        details: 封装、继承、多态、多线程、阻塞队列、线程池、集合类、反射。
-      - label: 【JVM】
-        details: 内存模型、类加载、双亲委派、内存溢出、垃圾回收机制、JDK21、Arthas。
+      - label: 【Java & JVM】
+        details: 封装、继承、多态、多线程、集合、反射、内存模型、类加载、双亲委派、OOM、GC、JDK21。
       - label: 【Spring】
         details: IOC、AOP、Bean生命周期、循环依赖、事务传播机制；Spring MVC 拦截器&过滤器。
       - label: 【分布式】
@@ -155,6 +158,9 @@ cv:
 
 design:
   theme: classic
+  templates:
+    publication_entry:
+      main_column: "TITLE | AUTHORS\nURL | JOURNAL"
   # page:
   #   size: us-letter
   #   top_margin: 0.7in
@@ -183,8 +189,8 @@ design:
       connections: Source Sans 3
       section_titles: Source Sans 3
     font_size:
-      body: 11pt
-      name: 30pt
+      body: 10pt
+      name: 20pt
       headline: 10pt
       connections: 10pt
       section_titles: 1.4em
@@ -228,13 +234,13 @@ design:
   #   space_between_text_based_entries: 0.3em
   #   show_time_spans_in:
   #     - experience
-  # entries:
-  #   date_and_location_width: 4.15cm
-  #   side_space: 0.2cm
-  #   space_between_columns: 0.1cm
-  #   allow_page_break: false
-  #   short_second_row: true
-  #   degree_width: 1cm
+  entries:
+    date_and_location_width: 2.5cm
+    side_space: 0.2cm
+    space_between_columns: 0.1cm
+    allow_page_break: false
+    short_second_row: true
+    degree_width: 1cm
   #   summary:
   #     space_above: 0cm
   #     space_left: 0cm
