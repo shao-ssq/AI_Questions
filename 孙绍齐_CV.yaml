@@ -8,7 +8,7 @@ cv:
   custom_connections:
   sections:
     教育背景:
-      - institution: 国防科技大学（985，双一流高校，国重）
+      - institution: 国防科技大学（985，双一流高校）
         area: 软件工程（A+，双一流学科）
         degree: 硕士
         start_date: 2021
@@ -40,10 +40,10 @@ cv:
         summary:
         highlights:
           - 方向：大语言模型微调（Fine-tune）、文本转语音算法（TTS）推理加速
-          - 项目：【WeLLM 微调模型迭代平台】【AOB 智能客户外呼系统】
+          - 项目：【AgentFlywheel】【DeepReview】【AOB 智能客户外呼系统】
           - 专利：MARL 下基于影响传播的奖励冲突解决方法、一种自适应波动流量下限流熔断策略
     项目经历:
-      - name: WeLLM 多智能体模型迭代平台
+      - name: AgentFlywheel
         date: 2026-09
         start_date:
         end_date:
@@ -60,9 +60,11 @@ cv:
         start_date:
         end_date:
         location:
-        summary: 基于微调大模型与本体建模的 AI 代码审查 SKILL，通过规则分类体系与 Diff/Code 双通道审查，实现 Review 真正的 0 Token 消耗。
+        summary: 基于微调大模型与图谱建模的 AI 代码审查 SKILL，通过规则分类体系与 Diff/Code 双通道审查，实现 Review 几乎 0 Token 消耗。
         highlights:
-          - 内容：基于 Qwen3.6-27B 微调模型构建代码 Diff/Code 双通道审查；采用 Tree-sitter AST 扩展至函数边界并注入状态和行号上下文；内置 215 条《CNC 开发铁律&金融严谨性》规则分类体系（A 类 123 条可通过单 Diff 判断，B 类 92 条需 SKILL 跨文件/跨表上下文）。
+          - 微调：基于 Qwen3.6-27B 微调模型构建代码 Diff/Code 双通道审查；采用 Tree-sitter AST 扩展至函数边界并注入状态和行号上下文；内置 215 条《CNC 开发铁律&金融严谨性》规则分类体系（A 类 123 条可通过单 Diff 判断，B 类 92 条需 SKILL 跨文件/跨表上下文）。
+          - 图谱：
+          - 审查：
           - 成果：Token 降低 90%+，每次 Review 无需大量 grep 扫描上下文；通用 LLM 精确率仅 50%、误判率 30%，DeepReview 达 95%+ 精确率；已发布 pip 包（deep-review）实现数据飞轮自演进。
       - name: CosyVoice 推理延迟优化与分布式部署
         date: 2025-04
@@ -120,10 +122,9 @@ cv:
         date: 2020-07
     荣誉奖项:
       - bullet: 微众银行双月之星、最佳拍档、协助之星、AI分享之星、1024 Agent大赛二等奖（连续两届）
-      - bullet: 三级优秀毕业生（省级、校级、院级）、郑州大学一等奖学金 & 三好学生（连续四届）
       - bullet: 国防科技大学全额学业奖学金（连续三届）、2023 优秀一等奖学金 & 优秀学员、2021 新生奖学金
-      - bullet: 2023 挑战杯学术科技作品竞赛（国二）、2020 全国大学生信息安全竞赛（国三）
-      - bullet: 2022 大疆创新机甲大师高校 Sim2Real 挑战赛（国三）
+      - bullet: 郑州大学三级优秀毕业生（省级、校级、院级）、郑州大学一等奖学金 & 三好学生（连续四届）
+      - bullet: 2023 挑战杯学术科技作品赛（国二）、2022 大疆机甲大师挑战赛（国三）、2020 全国大学生信息安全竞赛（国三）
     技术栈:
       - label: 【ML & DL & RL】
         details: PLA、SVM、聚类、FNN、CNN、RNN、激活函数、优化器、DQN系列、AC系列、DDPG。
@@ -137,10 +138,8 @@ cv:
         details: 混合检索、重排序、语义切分、Graph RAG、BGE、Qwen、BM25、IVF & HNSW、评估。
       - label: 【Agent】
         details: Qwen & DeepSeek、ReAct、MCP、COT、Skill、反思、多轮对话优化、长上下文处理。
-      - label: 【Java & JVM】
-        details: 封装、继承、多态、多线程、集合、反射、内存模型、类加载、双亲委派、OOM、GC、JDK21。
-      - label: 【Spring】
-        details: IOC、AOP、Bean生命周期、循环依赖、事务传播机制；Spring MVC 拦截器&过滤器。
+      - label: 【Python & DA】
+        details: 元组列表、面向对象、IO、多线程、NumPy、Pandas、Scikit-learn、Requests、Selenium。
       - label: 【分布式】
         details: 服务注册发现、CAP、阶段提交、负载均衡、限流熔断、共识算法、认证授权、Docker。
       - label: 【消息队列】
@@ -155,6 +154,10 @@ cv:
         details: 进程&线程、通信方式、用户态&核心态、内存管理、虚拟内存、Cache 替换算法。
       - label: 【计算机网络】
         details: TCP&UDP、TCP 流量控制、TCP 拥塞控制、三次握手&四次挥手、HTTP&HTTPS、DNS。
+      - label: 【Java & JVM】
+        details: 封装、继承、多态、多线程、集合、反射、内存模型、类加载、双亲委派、OOM、GC、JDK21。
+      - label: 【Spring】
+        details: IOC、AOP、Bean生命周期、循环依赖、事务传播机制；Spring MVC 拦截器&过滤器。
 
 design:
   theme: classic
