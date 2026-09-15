@@ -120,7 +120,7 @@ cv:
         date: 2020-07
     荣誉奖项:
       - bullet: 微众银行双月之星、最佳拍档、协助之星、AI分享之星、1024 Agent大赛二等奖（连续两届）
-      - bullet: 省、校、院优秀毕业生、郑州大学一等奖学金 & 三好学生（连续四届）
+      - bullet: 三级优秀毕业生（省级、校级、院级）、郑州大学一等奖学金 & 三好学生（连续四届）
       - bullet: 国防科技大学全额学业奖学金（连续三届）、2023 优秀一等奖学金 & 优秀学员、2021 新生奖学金
       - bullet: 2023 挑战杯学术科技作品竞赛（国二）、2020 全国大学生信息安全竞赛（国三）
       - bullet: 2022 大疆创新机甲大师高校 Sim2Real 挑战赛（国三）
@@ -160,7 +160,7 @@ design:
   theme: classic
   templates:
     publication_entry:
-      main_column: "TITLE | AUTHORS\nURL | JOURNAL"
+      main_column: "TITLE | AUTHORS\nURL · JOURNAL"
   # page:
   #   size: us-letter
   #   top_margin: 0.7in
