@@ -1,4 +1,5 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.7/schema.json
+# rendercv render 孙绍齐_CV.yaml
 cv:
   name: 孙绍齐
   headline: 算法工程师 | 软件工程硕士 | 1999.3 | 党员 | 男
@@ -43,29 +44,29 @@ cv:
           - 项目：【AgentFlywheel】【DeepReview】【AOB 智能客户外呼系统】
           - 专利：MARL 下基于影响传播的奖励冲突解决方法、一种自适应波动流量下限流熔断策略
     项目经历:
-      - name: AgentFlywheel
+      - name: AgentFlywheel（微粒贷营销/催收数据飞轮）
         date: 2026-09
         start_date:
         end_date:
         location:
-        summary: 由造数、对话、质检、微调与分析五大 Agent 协同构成，实现“数据构建—模型对话—质量控制-模型微调—上线迭代”的全流程智能化闭环。
+        summary: 由造数、微调、对话、质检与分析五大 Agent 闭环联动，实现“造数→微调→对话→质检→分析→回流造数”的自演进数据飞轮，持续覆盖新场景并提升营销模型业务表现。
         highlights:
-          - 造数：DAG 拓扑 + 马尔可夫状态机驱动节点走向，LLM 生成坐席话术、概率选边生成客户回复，遍历多重分支补全长尾与边缘场景。
-          - 对话：双模型对弈（微调模型 vs 微调真实用户模型）驱动多轮动态对话，注入多维用户画像自动对练，覆盖人工难以穷举的长尾与对抗场景。
-          - 质检：专项检测器并发 + 断点续传 + 二次审查纠正误判，以人工标注为基准量化准确率/召回率/误杀率，实现“对话即出表、全量覆盖”质检。
-          - 微调：Qwen3-8B 经 LoRA 微调落地法务/催收/营销等场景 LLM，对话侧由 U1/U2/U3.json 随机抽取画像与意图拼接 Prompt 生成客户输入，质检侧按 D0-D2 分阶段检测并聚合上报。
-          - 分析：LLM 语义聚类 + 归因引擎并发处理线上真实交互，挖掘场景盲区并指令化回流造数 Agent，驱动全链路自演进。
+          - 【造数 Agent】基于 DAG + 马尔可夫状态机编排对话流程，[通用模型][用户模型]根据状态交互生成对话，多路径遍历长尾复杂场景。
+          - 【微调 Agent】融合【造数 Agent】新场景数据，微调 Qwen3-8B，构建[营销模型]新场景业务能力。
+          - 【对话 Agent】[营销模型] vs [用户模型]双模型对弈，注入用户画像&对话路径驱动多轮动态对话。
+          - 【质检 Agent】[质检模型] + 多规则并发 + 误判兜底，以人工标注为基准，评估[营销模型] P/R/F1。
+          - 【分析 Agent】Badcase 自动聚类 + 根因多维诊断，反向驱动【造数 Agent】定向生成样本。
       - name: DeepReview
         date: 2025-10
         start_date:
         end_date:
         location:
-        summary: 基于微调大模型与图谱建模的 AI 代码审查 SKILL，通过规则分类体系与 Diff/Code 双通道审查，实现 Review 几乎 0 Token 消耗。
+        summary: 基于微调大模型与图谱建模的代码审查 SKILL，通过规则分类体系与 Diff/Code 双通道审查，实现 Review 几乎 0 Token 消耗。
         highlights:
           - 微调：基于 Qwen3.6-27B 微调模型构建代码 Diff/Code 双通道审查；采用 Tree-sitter AST 扩展至函数边界并注入状态和行号上下文；内置 215 条《CNC 开发铁律&金融严谨性》规则分类体系（A 类 123 条可通过单 Diff 判断，B 类 92 条需 SKILL 跨文件/跨表上下文）。
           - 图谱：
           - 审查：
-          - 成果：Token 降低 90%+，每次 Review 无需大量 grep 扫描上下文；通用 LLM 精确率仅 50%、误判率 30%，DeepReview 达 95%+ 精确率；已发布 pip 包（deep-review）实现数据飞轮自演进。
+          - 成果：Token 降低 90%+，Review 无需大量 grep 扫描上下文；通用 LLM 精确率仅 50%、误判率 30%，DeepReview 达 95%+ 精确率；已发布 pip 包（deep-review）实现数据飞轮自演进。
       - name: CosyVoice 推理延迟优化与分布式部署
         date: 2025-04
         start_date:
@@ -238,7 +239,7 @@ design:
   #   show_time_spans_in:
   #     - experience
   entries:
-    date_and_location_width: 2.5cm
+    date_and_location_width: 2.3cm
     side_space: 0.2cm
     space_between_columns: 0.1cm
     allow_page_break: false
