@@ -62,7 +62,7 @@
   section-titles-space-above: 0.5cm,
   section-titles-space-below: 0.3cm,
   sections-allow-page-break: true,
-  sections-space-between-text-based-entries: 0.3em,
+  sections-space-between-text-based-entries: 0.4em,
   sections-space-between-regular-entries: 1.2em,
   entries-date-and-location-width: 2.3cm,
   entries-side-space: 0.2cm,
@@ -88,7 +88,7 @@
 
 = 孙绍齐
 
-  #headline([算法工程师 | 软件工程硕士 | 1999.3 | 党员 | 男])
+  #headline([算法工程师 | 软件工程硕士 | 1999.3(26) | 党员 | 男])
 
 #connections(
   [#link("mailto:shaoqisun@qq.com", icon: false, if-underline: false, if-color: false)[#connection-with-icon("envelope")[shaoqisun\@qq.com]]],
@@ -143,7 +143,7 @@
   ],
 )
 
-== 工作经验
+== 工作经历
 
 #regular-entry(
   [
@@ -152,6 +152,8 @@
     - 方向：大语言模型微调（Fine-tune）、文本转语音算法（TTS）
 
     - 项目：AgentFlywheel（营销场景）、DeepReview、AOB 智能外呼系统（TTS推理加速）
+
+    - 专利：MARL 下基于影响传播的奖励冲突解决方法、一种自适应波动流量下限流熔断策略
 
   ],
   [
@@ -329,3 +331,11 @@
 #strong[【操作系统】] 进程&线程、通信方式、用户态&核心态、内存管理、虚拟内存、Cache 替换算法。
 
 #strong[【计算机网络】] TCP&UDP、TCP 流量控制、TCP 拥塞控制、三次握手&四次挥手、HTTP&HTTPS、DNS。
+
+== 自我评价
+
+- 求职意向：算法工程师。国防科技大学软件工程硕士（985\/双一流\/A+），现任微众银行数据算法岗（3年），深耕大模型微调、Agent 闭环架构与 AI 工程化落地利。
+
+- 熟练掌握 LLM 领域微调与推理优化（vLLM、DeepSpeed、LoRA\/QLoRA），深度掌握 Agent 体系（LangGraph、DeepAgent、MCP\/Skill）与 RAG 建模，发表论文 5 篇，专利 2 项。
+
+- 主导落地 AgentFlywheel 营销数据自演进飞轮；打造 DeepReview 代码审查工具，将审查 F1 值提升至 95\%、Token 消耗降低 90\%；优化 CosyVoice2\/3 语音推理使 P99 延迟低至 264ms，业界领先。

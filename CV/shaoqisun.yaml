@@ -2,7 +2,7 @@
 # rendercv render 孙绍齐_CV.yaml
 cv:
   name: 孙绍齐
-  headline: 算法工程师 | 软件工程硕士 | 1999.3 | 党员 | 男
+  headline: 算法工程师 | 软件工程硕士 | 1999.3(26) | 党员 | 男
   email: shaoqisun@qq.com
   phone: "+86 17724838277"
   website: https://shao12138.blog.csdn.net/
@@ -31,7 +31,7 @@ cv:
           - 方向：自然语言处理（NLP）
           - 论文：基于交互式多任务学习的中文文本情感分类（SCI）
           - 绩点：3.63/4.00；排名：12/712；英语：CET-6
-    工作经验:
+    工作经历:
       - company: 微众银行 | 武汉研发中心 | 数据算法岗
         position: ""
         date:
@@ -155,6 +155,10 @@ cv:
         details: 进程&线程、通信方式、用户态&核心态、内存管理、虚拟内存、Cache 替换算法。
       - label: 【计算机网络】
         details: TCP&UDP、TCP 流量控制、TCP 拥塞控制、三次握手&四次挥手、HTTP&HTTPS、DNS。
+    自我评价:
+      - bullet: 求职意向：算法工程师。国防科技大学软件工程硕士（985/双一流/A+），现任微众银行数据算法岗（3年），深耕大模型微调、Agent 闭环架构与 AI 工程化落地利。
+      - bullet: 熟练掌握 LLM 领域微调与推理优化（vLLM、DeepSpeed、LoRA/QLoRA），深度掌握 Agent 体系（LangGraph、DeepAgent、MCP/Skill）与 RAG 建模，发表论文 5 篇，专利 2 项。
+      - bullet: 主导落地 AgentFlywheel 营销数据自演进飞轮；打造 DeepReview 代码审查工具，将审查 F1 值提升至 95%、Token 消耗降低 90%；优化 CosyVoice2/3 语音推理使 P99 延迟低至 264ms，业界领先。
 
 design:
   theme: classic
@@ -233,7 +237,8 @@ design:
   # sections:
   #   allow_page_break: true
   #   space_between_regular_entries: 1.2em
-  #   space_between_text_based_entries: 0.3em
+  sections:
+    space_between_text_based_entries: 0.4em
   #   show_time_spans_in:
   #     - experience
   entries:
