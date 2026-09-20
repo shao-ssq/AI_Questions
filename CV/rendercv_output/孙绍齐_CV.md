@@ -45,7 +45,7 @@
 
 2024 – 至今
 
-- 方向：大语言模型微调（Fine-tune）、文本转语音算法（TTS）推理加速
+- 方向：大语言模型微调（Fine-tune）、文本转语音算法（TTS）
 
 - 项目：AgentFlywheel（营销场景）、DeepReview、AOB 智能外呼系统（TTS推理加速）
 
@@ -92,9 +92,9 @@
 
 4月 2025
 
-- 内容：分离式架构防止 LLM 和 token2wav 资源竞争；vLLM & 多 estimator 加速 LLM 推理速度；配套流式输入&输出，提升全流程速度。
+- 【内容】分离式架构防止 LLM 和 token2wav 资源竞争；vLLM & 多 estimator 加速 LLM 推理速度；配套流式输入&输出，提升全流程速度。
 
-- 成果：4 卡分布式部署下（4090），双流式 24 并发 P99 稳定在 429ms 内；消除流式输入延迟的条件下，TTS 推理 P99 低至 264ms，业界领先。
+- 【成果】4 卡分布式部署下（4090），双流式 24 并发 P99 稳定在 429ms 内；消除流式输入延迟的条件下，TTS 推理 P99 低至 264ms，业界领先。
 
 
 
@@ -149,34 +149,30 @@
 
 
 # 技术栈
-**【ML & DL & RL】:** PLA、SVM、聚类、FNN、CNN、RNN、激活函数、优化器、DQN系列、AC系列、DDPG。
+**【Agent】** LangChain（请求）、LangGraph（工作流）、DeepAgent（Agent）、ReAct（COT、反思）、MCP&Skill。
 
-**【Transformer】:** 位置编码、ROPE、QKV、KV Cache、Attention、残差 & 归一化、MHA系列、Flash Attention。
+**【SFT & RLHF】** P-tuning、LoRA、QLoRA、蒸馏、PPO、GRPO、DRPO、GSPO、DPO、DAPO、VAPO。
 
-**【SFT & RLHF】:** P-tuning、LoRA、QLoRA、蒸馏、PPO、GRPO、DRPO、GSPO、DPO、DAPO、VAPO。
+**【vLLM & DeepSpeed】** 显存估算、KV Cache、内存墙、PD分离、PagedAttention、并行策略、ZeRO(1-3)。
 
-**【vLLM & DeepSpeed】:** 显存估算、KV Cache、内存墙、PD分离、PagedAttention、并行策略、ZeRO(1-3)。
+**【RAG】** 混合检索、重排序、语义切分、Graph RAG、BGE&Qwen3 Embedding、BM25&IVF、评估。
 
-**【RAG】:** 混合检索、重排序、语义切分、Graph RAG、BGE、Qwen、BM25、IVF & HNSW、评估。
+**【LLM】** BERT、DeepSeek R1、Qwen系列、Prompt、复读、幻觉、漂移、长上下文（多轮对话）、评估。
 
-**【Agent】:** Qwen & DeepSeek、ReAct、MCP、COT、Skill、反思、多轮对话优化、长上下文处理。
+**【Transformer】** 位置编码、ROPE、QKV、KV Cache、Attention、残差 & 归一化、MHA系列、Flash Attention。
 
-**【Python & DA】:** 元组列表、面向对象、IO、多线程、NumPy、Pandas、Scikit-learn、Requests、Selenium。
+**【NLP】** 分词、词嵌入、Word2vec、损失函数、语言模型LM（统计学、FNN、RNN）、seq2seq。
 
-**【分布式】:** 服务注册发现、CAP、阶段提交、负载均衡、限流熔断、共识算法、认证授权、Docker。
+**【强化学习】** 马尔可夫、贝尔曼方程、动态规划、时序拆分、DQN家族、AC家族、确定性策略梯度DDPG。
 
-**【消息队列】:** 消费幂等性、可靠传输、顺序消费；解决消息挤压、耦合、削峰、分布式事务等问题。
+**【深度学习】** 全连接网络FNN、循环神经网络RNN、卷积神经网络CNN、激活函数、优化器、梯度问题、学习率。
 
-**【缓存】:** 原理、数据结构、集群方式、内存碎片，RDB&AOF，分布式锁；缓存穿透（雪崩、击穿、污染）。
+**【机器学习】** 过拟合、损失函数、感知机算法、支持向量机、Rademacher、聚类、梯度下降、回归分类度量。
 
-**【数据库】:** 数据库范式、事务处理、锁、SQL优化、InnoDB 引擎、MVCC 原理、索引机制。
+**【数据分析】** 封装、继承、多态、多线程、元组列表、数据预处理、特征工程、数据挖掘、可视化分析。
 
-**【数据结构】:** KMP、红黑树、堆、二叉树构造&遍历、BFS&DFS、最小生成树、最短路径、排序算法。
+**【数据结构】** KMP、红黑树、堆、二叉树构造&遍历、BFS&DFS、最小生成树、最短路径、排序算法。
 
-**【操作系统】:** 进程&线程、通信方式、用户态&核心态、内存管理、虚拟内存、Cache 替换算法。
+**【操作系统】** 进程&线程、通信方式、用户态&核心态、内存管理、虚拟内存、Cache 替换算法。
 
-**【计算机网络】:** TCP&UDP、TCP 流量控制、TCP 拥塞控制、三次握手&四次挥手、HTTP&HTTPS、DNS。
-
-**【Java & JVM】:** 封装、继承、多态、多线程、集合、反射、内存模型、类加载、双亲委派、OOM、GC、JDK21。
-
-**【Spring】:** IOC、AOP、Bean生命周期、循环依赖、事务传播机制；Spring MVC 拦截器&过滤器。
+**【计算机网络】** TCP&UDP、TCP 流量控制、TCP 拥塞控制、三次握手&四次挥手、HTTP&HTTPS、DNS。
