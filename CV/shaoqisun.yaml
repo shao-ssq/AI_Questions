@@ -156,7 +156,8 @@ cv:
       - label: 【计算机网络】
         details: TCP&UDP、TCP 流量控制、TCP 拥塞控制、三次握手&四次挥手、HTTP&HTTPS、DNS。
     自我评价:
-      - bullet: 求职意向：算法工程师。国防科技大学软件工程硕士（985/双一流/A+），现任微众银行数据算法岗（3年），深耕大模型微调、Agent 闭环架构与 AI 工程化落地利。
+      - bullet: 求职意向：算法工程师
+      - bullet: 国防科技大学软件工程硕士（985/双一流/A+），现任微众银行数据算法岗（3年），深耕大模型微调、Agent 闭环架构与 AI 工程化落地。
       - bullet: 熟练掌握 LLM 领域微调与推理优化（vLLM、DeepSpeed、LoRA/QLoRA），深度掌握 Agent 体系（LangGraph、DeepAgent、MCP/Skill）与 RAG 建模，发表论文 5 篇，专利 2 项。
       - bullet: 主导落地 AgentFlywheel 营销数据自演进飞轮；打造 DeepReview 代码审查工具，将审查 F1 值提升至 95%、Token 消耗降低 90%；优化 CosyVoice2/3 语音推理使 P99 延迟低至 264ms，业界领先。
 
